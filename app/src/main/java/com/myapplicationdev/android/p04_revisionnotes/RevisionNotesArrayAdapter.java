@@ -41,6 +41,7 @@ public class RevisionNotesArrayAdapter extends ArrayAdapter<Note> {
 
 		Note note = notes.get(position);
 
+		tvNote.setText(note.getContent().toString());
 		int stars = note.getStar();
 		//Check if the property for starts >= 5, if so, "light" up the stars
 		if (stars >= 5) {
@@ -49,36 +50,30 @@ public class RevisionNotesArrayAdapter extends ArrayAdapter<Note> {
 			iv3.setImageResource(android.R.drawable.btn_star_big_on);
 			iv2.setImageResource(android.R.drawable.btn_star_big_on);
 			iv1.setImageResource(android.R.drawable.btn_star_big_on);
-		} else if (stars < 5) {
+		} else if (stars >= 4) {
 			iv5.setImageResource(android.R.drawable.btn_star_big_off);
 			iv4.setImageResource(android.R.drawable.btn_star_big_on);
 			iv3.setImageResource(android.R.drawable.btn_star_big_on);
 			iv2.setImageResource(android.R.drawable.btn_star_big_on);
 			iv1.setImageResource(android.R.drawable.btn_star_big_on);
-		} else if (stars < 4) {
+		} else if (stars >= 3) {
 			iv5.setImageResource(android.R.drawable.btn_star_big_off);
 			iv4.setImageResource(android.R.drawable.btn_star_big_off);
 			iv3.setImageResource(android.R.drawable.btn_star_big_on);
 			iv2.setImageResource(android.R.drawable.btn_star_big_on);
 			iv1.setImageResource(android.R.drawable.btn_star_big_on);
-		} else if (stars < 3) {
+		} else if (stars >= 2) {
 			iv5.setImageResource(android.R.drawable.btn_star_big_off);
 			iv4.setImageResource(android.R.drawable.btn_star_big_off);
 			iv3.setImageResource(android.R.drawable.btn_star_big_off);
 			iv2.setImageResource(android.R.drawable.btn_star_big_on);
 			iv1.setImageResource(android.R.drawable.btn_star_big_on);
-		} else if (stars < 2) {
+		} else if (stars >= 1) {
 			iv5.setImageResource(android.R.drawable.btn_star_big_off);
 			iv4.setImageResource(android.R.drawable.btn_star_big_off);
 			iv3.setImageResource(android.R.drawable.btn_star_big_off);
 			iv2.setImageResource(android.R.drawable.btn_star_big_off);
 			iv1.setImageResource(android.R.drawable.btn_star_big_on);
-		} else if (stars < 1) {
-			iv5.setImageResource(android.R.drawable.btn_star_big_off);
-			iv4.setImageResource(android.R.drawable.btn_star_big_off);
-			iv3.setImageResource(android.R.drawable.btn_star_big_off);
-			iv2.setImageResource(android.R.drawable.btn_star_big_off);
-			iv1.setImageResource(android.R.drawable.btn_star_big_off);
 		}
 
 		return rowView;

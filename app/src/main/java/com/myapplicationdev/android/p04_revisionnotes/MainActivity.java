@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         etNote = (EditText)findViewById(R.id.editTextNote);
+        btnInsertNote = (Button)findViewById(R.id.buttonInsertNote);
+        btnShowList = (Button)findViewById(R.id.buttonShowList);
 
         btnInsertNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (selectedRB == R.id.radio5) {
                     db.insertNote(etNote.getText().toString(), 5);
                 }
+                Toast.makeText(MainActivity.this ,"Inserted", Toast.LENGTH_SHORT).show();
                 db.close();
             }
         });
